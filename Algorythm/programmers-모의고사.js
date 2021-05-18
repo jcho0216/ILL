@@ -16,47 +16,27 @@
 // [1,3,2,4,2]	[1,2,3]
 
 //풀이1
-// function solutions(answers) {
+function solutions(answers) {
+  let answer = [];
+  length = answers.length;
+
+  const p1 = [1, 2, 3, 4, 5];
+  const p2 = [2, 1, 2, 3, 2, 4, 2, 5];
+  const p3 = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5];
+
+  let score = [0, 0, 0];
+
+  for (let i = 0; i < length; i++) {
+      if(answers[i] == p1[i % p1.length]) score[0]++;
+      if(answers[i] == p2[i % p2.length]) score[1]++;
+      if(answers[i] == p3[i % p3.length]) score[2]++;
+  }
+
+  const max = Math.max(score[0], score[1], score[2]);
   
-//   let pattern = [
-//     [1, 2, 3, 4, 5],
-//     [2, 1, 2, 3, 2, 4, 2, 5],
-//     [3, 3, 1, 1, 2, 2, 4, 4, 5, 5],
-//   ];
+  for(let i = 0; i < length; i++) {
+      if(max == count[i]) answer.push(i + 1)
+  }
 
-//   let score = [0, 0, 0]
-
-//   answers.forEach((answer, index) => {
-//       if(answer === pattern[0][index % pattern[0].length]) {
-//         score[0]++;
-//       }
-//       if(answer === pattern[1][index % pattern[1].length]) {
-//         score[1]++;
-//       }
-//       if(answer === pattern[2][index % pattern[2].length]) {
-//         score[2]++;
-//       }
-//   });
-
-
-//   }
-
-//프로그래머스 대표 풀이
-function solution(answers) {
-    var answer = [];
-    var a1 = [1, 2, 3, 4, 5];
-    var a2 = [2, 1, 2, 3, 2, 4, 2, 5]
-    var a3 = [ 3, 3, 1, 1, 2, 2, 4, 4, 5, 5];
-
-    var a1c = answers.filter((a,i)=> a === a1[i%a1.length]).length;
-    var a2c = answers.filter((a,i)=> a === a2[i%a2.length]).length;
-    var a3c = answers.filter((a,i)=> a === a3[i%a3.length]).length;
-    var max = Math.max(a1c,a2c,a3c);
-
-    if (a1c === max) {answer.push(1)};
-    if (a2c === max) {answer.push(2)};
-    if (a3c === max) {answer.push(3)};
-
-
-    return answer;
+  return answer;
 }
