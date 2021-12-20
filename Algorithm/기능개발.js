@@ -1,6 +1,6 @@
 //나의 풀이:
 function solution(progresses, speeds) {
-    let days = [];
+    const days = [];
     const answer = [];
     let time = 1;
 
@@ -22,11 +22,11 @@ function solution(progresses, speeds) {
             time = 1;
         }
     }
-    
+
     return answer;
 }
 
-//남의 풀이:
+//남의 풀이: 나보다 훨씬 간단하게 잘 짰구나..
 function solution(progresses, speeds) {
     let answer = [0];
     let days = progresses.map((progress, index) => Math.ceil((100 - progress) / speeds[index]));
